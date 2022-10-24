@@ -6,7 +6,7 @@ public class DecimalToBinaryConversion {
 
         while (decimalN >= 1) {
             int remainder = decimalN % 2;
-            System.out.println(remainder);
+            //System.out.println(remainder);
             binaryString.append(remainder);
             decimalN /= 2;
         }

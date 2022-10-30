@@ -22,12 +22,18 @@ public class NumberOfDigitsInNumber {
     }
     static int findNumberOfDigitsLogarithmic(int num){
 
-        return (int) (Math.floor(Math.log10(num))+1);
+        if (num == 0) return 1;
+        return ((int) Math.floor(Math.log10(num))+1);
+    }
+    static int findNumberOfDigitsUsingStringClass(int num) {
+        return String.valueOf(num).length();
     }
 
-    public static void main(String[] args) {
-        System.out.println(findNumberOfDigitsLogarithmic(123));
-        System.out.println(findNumberOfDigitsIterative(123));
-        System.out.println(findNumberOfDigitsRecursive(123));
+        public static void main(String[] args) {
+        System.out.println(findNumberOfDigitsLogarithmic(0));
+        System.out.println(findNumberOfDigitsIterative(0));
+        System.out.println(findNumberOfDigitsRecursive(0));
+            System.out.println(findNumberOfDigitsUsingStringClass(123));
+        //the result from logarithmic approach is little unstable
     }
 }

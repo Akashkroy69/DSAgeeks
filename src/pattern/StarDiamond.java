@@ -33,6 +33,6 @@ public class StarDiamond {
     }
     public static void main(String[] args) {
 
-        nStarDiamond(15);
+        nStarDiamond(30);
     }
 }

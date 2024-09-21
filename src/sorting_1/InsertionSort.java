@@ -29,3 +29,6 @@ public class InsertionSort {
         }
 
 }
+
+//Time complexity: O(N2), (where N = size of the array), for the worst, and average cases.
+//Space Complexity: O(1)

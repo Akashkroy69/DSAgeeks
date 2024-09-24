@@ -4,47 +4,43 @@ package sorting_2;
 //j--> 4
 public class MergeSort {
 
-    public static void merging(int[] arr,int i,int j,int k){
-        int lengthArrayLeft = j - i +1;
-        int lengthArrayRight = k-j;
+    public static void merging(int[] arr,int startI,int midI,int lastI){
+        int lengthArrayLeft = midI - startI +1;
+        int lengthArrayRight = lastI-midI;
 
         int[] arrLeft = new int[lengthArrayLeft+1];
         int[] arrRight = new int[lengthArrayRight+1];
 
         for(int l=0;l<lengthArrayLeft;l++){
-            arrLeft[l] = arr[i+l];
+            arrLeft[l] = arr[startI+l];
         }
         arrLeft[lengthArrayLeft] = Integer.MAX_VALUE;
 
         for (int l=0;l<lengthArrayRight;l++){
-            arrRight[l] = arr[j+1+l];
+            arrRight[l] = arr[midI+1+l];
         }
         arrRight[lengthArrayRight] = Integer.MAX_VALUE;
 
-        for(int l = i;l<=k;l++){
+        int i =0,j =0;
+        for(int l = startI;l<=lastI;l++){
             if (arrLeft[i] < arrRight[j]){
                 arr[l] = arrLeft[i];
                 i++;
             }else {
-                arr[l] = arrRight[j+1];
+                arr[l] = arrRight[j];
                 j++;
             }
         }
-
-
-
-
     }
 
-    public static void mergeSort(int[] arr, int i, int k){
-        int j = 0;
-        if(i<k){
-            j = (i+k)/2;
-
-        }else return;
-        mergeSort(arr,i,j);
-        mergeSort(arr,j+1,k);
-        merging(arr,i,j,k);
+    public static void mergeSort(int[] arr, int startI, int lastI){
+        if(startI>=lastI){
+            return;
+        }
+        int midI = (startI+lastI)/2;
+        mergeSort(arr,startI,midI);
+        mergeSort(arr,midI+1,lastI);
+        merging(arr,startI,midI,lastI);
     }
 
     public static void display(int[] arr){
